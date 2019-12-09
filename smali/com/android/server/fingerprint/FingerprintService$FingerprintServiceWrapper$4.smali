@@ -27,7 +27,7 @@
 .method constructor <init>(Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;Landroid/os/IBinder;)V
     .locals 0
 
-    .line 1305
+    .line 1301
     iput-object p1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$4;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     iput-object p2, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$4;->val$token:Landroid/os/IBinder;
@@ -42,7 +42,7 @@
 .method public run()V
     .locals 5
 
-    .line 1308
+    .line 1304
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$4;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     iget-object v0, v0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/fingerprint/FingerprintService;
@@ -51,12 +51,12 @@
 
     move-result-object v0
 
-    .line 1309
+    .line 1305
     instance-of v1, v0, Lcom/android/server/fingerprint/AuthenticationClient;
 
     if-eqz v1, :cond_3
 
-    .line 1310
+    .line 1306
     invoke-virtual {v0}, Lcom/android/server/fingerprint/ClientMonitor;->getToken()Landroid/os/IBinder;
 
     move-result-object v1
@@ -65,7 +65,7 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 1311
+    .line 1307
     const-string v1, "FingerprintService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -88,7 +88,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1312
+    .line 1308
     invoke-virtual {v0}, Lcom/android/server/fingerprint/ClientMonitor;->getToken()Landroid/os/IBinder;
 
     move-result-object v1
@@ -111,7 +111,7 @@
 
     move-result v0
 
-    .line 1313
+    .line 1309
     iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$4;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     iget-object v1, v1, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/fingerprint/FingerprintService;
@@ -124,7 +124,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1314
+    .line 1310
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$4;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     iget-object v0, v0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/fingerprint/FingerprintService;
@@ -141,11 +141,11 @@
 
     invoke-virtual {v0, v1, v2, v4, v3}, Lcom/android/server/fingerprint/FingerprintService;->handleError(JII)V
 
-    .line 1317
+    .line 1313
     :cond_1
     goto :goto_1
 
-    .line 1318
+    .line 1314
     :cond_2
     const-string v1, "FingerprintService"
 
@@ -157,7 +157,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1319
+    .line 1315
     invoke-virtual {v0}, Lcom/android/server/fingerprint/ClientMonitor;->getOwnerString()Ljava/lang/String;
 
     move-result-object v0
@@ -172,16 +172,16 @@
 
     move-result-object v0
 
-    .line 1318
+    .line 1314
     invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 1321
+    .line 1317
     :cond_3
     if-eqz v0, :cond_4
 
-    .line 1322
+    .line 1318
     const-string v1, "FingerprintService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -192,7 +192,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1323
+    .line 1319
     invoke-virtual {v0}, Lcom/android/server/fingerprint/ClientMonitor;->getOwnerString()Ljava/lang/String;
 
     move-result-object v0
@@ -203,10 +203,10 @@
 
     move-result-object v0
 
-    .line 1322
+    .line 1318
     invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1325
+    .line 1321
     :cond_4
     :goto_1
     return-void

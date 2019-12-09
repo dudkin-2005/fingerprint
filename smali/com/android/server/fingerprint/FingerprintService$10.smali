@@ -22,7 +22,7 @@
 .method constructor <init>(Lcom/android/server/fingerprint/FingerprintService;Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;IIJZLjava/lang/String;Landroid/os/Bundle;Landroid/hardware/biometrics/IBiometricPromptReceiver;Lcom/android/internal/statusbar/IStatusBarService;)V
     .locals 15
 
-    .line 944
+    .line 942
     move-object v0, p0
 
     move-object/from16 v1, p1
@@ -63,7 +63,7 @@
 .method public getFingerprintDaemon()Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;
     .locals 1
 
-    .line 998
+    .line 994
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-virtual {v0}, Lcom/android/server/fingerprint/FingerprintService;->getFingerprintDaemon()Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;
@@ -76,7 +76,7 @@
 .method public getFingerprintInScreenDaemon()Lvendor/lineage/biometrics/fingerprint/inscreen/V1_0/IFingerprintInscreen;
     .locals 1
 
-    .line 1003
+    .line 999
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-virtual {v0}, Lcom/android/server/fingerprint/FingerprintService;->getFingerprintInScreenDaemon()Lvendor/lineage/biometrics/fingerprint/inscreen/V1_0/IFingerprintInscreen;
@@ -89,12 +89,12 @@
 .method public handleFailedAttempt()I
     .locals 6
 
-    .line 965
+    .line 963
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v0
 
-    .line 966
+    .line 964
     iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->access$700(Lcom/android/server/fingerprint/FingerprintService;)Landroid/util/SparseIntArray;
@@ -119,7 +119,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 967
+    .line 965
     iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->access$800(Lcom/android/server/fingerprint/FingerprintService;)Landroid/util/SparseBooleanArray;
@@ -132,28 +132,19 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    .line 968
+    .line 966
     iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->access$900(Lcom/android/server/fingerprint/FingerprintService;)I
 
     move-result v1
 
-    .line 969
-    iget-object v2, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
-
-    invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintService;->access$1000(Lcom/android/server/fingerprint/FingerprintService;)Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    .line 970
+    .line 967
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_0
 
-    .line 971
+    .line 968
     iget-object v2, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintService;->access$1000(Lcom/android/server/fingerprint/FingerprintService;)Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;
@@ -168,11 +159,11 @@
 
     goto :goto_0
 
-    .line 972
+    .line 969
     :cond_0
     if-ne v1, v4, :cond_1
 
-    .line 973
+    .line 970
     iget-object v2, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintService;->access$1000(Lcom/android/server/fingerprint/FingerprintService;)Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;
@@ -185,20 +176,20 @@
 
     iput v5, v2, Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;->lockout:I
 
-    .line 978
+    .line 974
     :cond_1
     :goto_0
     if-eqz v1, :cond_2
 
-    .line 979
+    .line 975
     iget-object v2, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v2, v0}, Lcom/android/server/fingerprint/FingerprintService;->access$1100(Lcom/android/server/fingerprint/FingerprintService;I)V
 
-    .line 980
+    .line 976
     return v1
 
-    .line 982
+    .line 978
     :cond_2
     return v3
 .end method
@@ -206,19 +197,19 @@
 .method public notifyUserActivity()V
     .locals 1
 
-    .line 993
+    .line 989
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->access$500(Lcom/android/server/fingerprint/FingerprintService;)V
 
-    .line 994
+    .line 990
     return-void
 .end method
 
 .method public onStart()V
     .locals 3
 
-    .line 948
+    .line 946
     :try_start_0
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
@@ -236,21 +227,21 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 951
+    .line 949
     goto :goto_0
 
-    .line 949
+    .line 947
     :catch_0
     move-exception v0
 
-    .line 950
+    .line 948
     const-string v1, "FingerprintService"
 
     const-string v2, "Could not register task stack listener"
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 952
+    .line 950
     :goto_0
     return-void
 .end method
@@ -258,7 +249,7 @@
 .method public onStop()V
     .locals 3
 
-    .line 957
+    .line 955
     :try_start_0
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
@@ -276,21 +267,21 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 960
+    .line 958
     goto :goto_0
 
-    .line 958
+    .line 956
     :catch_0
     move-exception v0
 
-    .line 959
+    .line 957
     const-string v1, "FingerprintService"
 
     const-string v2, "Could not unregister task stack listener"
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 961
+    .line 959
     :goto_0
     return-void
 .end method
@@ -298,19 +289,19 @@
 .method public resetFailedAttempts()V
     .locals 3
 
-    .line 987
+    .line 983
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    .line 988
+    .line 984
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v1
 
-    .line 987
+    .line 983
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2, v1}, Lcom/android/server/fingerprint/FingerprintService;->resetFailedAttemptsForUser(ZI)V
 
-    .line 989
+    .line 985
     return-void
 .end method

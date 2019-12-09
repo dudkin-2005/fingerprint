@@ -22,7 +22,7 @@
 .method constructor <init>(Lcom/android/server/fingerprint/FingerprintService;)V
     .locals 0
 
-    .line 1659
+    .line 1655
     iput-object p1, p0, Lcom/android/server/fingerprint/FingerprintService$13;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-direct {p0}, Landroid/app/SynchronousUserSwitchObserver;-><init>()V
@@ -40,7 +40,7 @@
         }
     .end annotation
 
-    .line 1662
+    .line 1658
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$13;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->access$1500(Lcom/android/server/fingerprint/FingerprintService;)Landroid/os/Handler;
@@ -55,9 +55,9 @@
 
     move-result-object p1
 
-    .line 1663
+    .line 1659
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1664
+    .line 1660
     return-void
 .end method
