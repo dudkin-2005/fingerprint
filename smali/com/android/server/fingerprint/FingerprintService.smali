@@ -22,7 +22,7 @@
 
 .field private static final CANCEL_TIMEOUT_LIMIT:J = 0xbb8L
 
-.field private static final CLEANUP_UNUSED_FP:Z = true
+.field private static final CLEANUP_UNUSED_FP:Z = false
 
 .field static final DEBUG:Z = true
 
@@ -1450,9 +1450,6 @@
 .method private doFingerprintCleanupForUser(I)V
     .registers 2
     .param p1, "userId"    # I
-
-    .line 477
-    invoke-direct {p0, p1}, Lcom/android/server/fingerprint/FingerprintService;->enumerateUser(I)V
 
     .line 479
     return-void
@@ -4699,6 +4696,11 @@
 
     .line 628
     :cond_5b
+    iget-object p1, p0, Lcom/android/server/fingerprint/FingerprintService;->mPerformanceStats:Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;
+
+    if-eqz p1, :cond_4
+
+    .line 504
     if-eqz p3, :cond_66
 
     .line 629
@@ -4723,6 +4725,7 @@
     iput v2, v1, Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;->reject:I
 
     .line 633
+    :cond_4
     :goto_6e
     return-void
 .end method

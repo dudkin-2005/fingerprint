@@ -146,6 +146,13 @@
 
     move-result v1
 
+    .line 969
+    iget-object v2, p0, Lcom/android/server/fingerprint/FingerprintService$10;->this$0:Lcom/android/server/fingerprint/FingerprintService;
+
+    invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintService;->access$1000(Lcom/android/server/fingerprint/FingerprintService;)Lcom/android/server/fingerprint/FingerprintService$PerformanceStats;
+
+    move-result-object v2
+
     .line 1155
     .local v1, "lockoutMode":I
     const/4 v2, 0x2
