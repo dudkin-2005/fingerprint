@@ -1,0 +1,296 @@
+.class final Lcom/android/server/vr/VrManagerService$NotificationAccessManager;
+.super Ljava/lang/Object;
+.source "VrManagerService.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/vr/VrManagerService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x12
+    name = "NotificationAccessManager"
+.end annotation
+
+
+# instance fields
+.field private final mAllowedPackages:Landroid/util/SparseArray;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray<",
+            "Landroid/util/ArraySet<",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field private final mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field final synthetic this$0:Lcom/android/server/vr/VrManagerService;
+
+
+# direct methods
+.method private constructor <init>(Lcom/android/server/vr/VrManagerService;)V
+    .locals 0
+
+    .line 448
+    iput-object p1, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 449
+    new-instance p1, Landroid/util/SparseArray;
+
+    invoke-direct {p1}, Landroid/util/SparseArray;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mAllowedPackages:Landroid/util/SparseArray;
+
+    .line 450
+    new-instance p1, Landroid/util/ArrayMap;
+
+    invoke-direct {p1}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/android/server/vr/VrManagerService;Lcom/android/server/vr/VrManagerService$1;)V
+    .locals 0
+
+    .line 448
+    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;-><init>(Lcom/android/server/vr/VrManagerService;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public update(Ljava/util/Collection;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 454
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v0
+
+    .line 456
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mAllowedPackages:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/util/ArraySet;
+
+    .line 457
+    if-nez v1, :cond_0
+
+    .line 458
+    new-instance v1, Landroid/util/ArraySet;
+
+    invoke-direct {v1}, Landroid/util/ArraySet;-><init>()V
+
+    .line 462
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
+
+    move-result v2
+
+    .line 463
+    add-int/lit8 v2, v2, -0x1
+
+    :goto_0
+    if-ltz v2, :cond_2
+
+    .line 464
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    .line 465
+    if-eq v3, v0, :cond_1
+
+    .line 466
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    .line 467
+    iget-object v5, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v5, v4, v3}, Lcom/android/server/vr/VrManagerService;->access$1100(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+
+    .line 468
+    iget-object v5, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v5, v4}, Lcom/android/server/vr/VrManagerService;->access$1200(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
+
+    .line 469
+    iget-object v5, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v5, v4, v3}, Lcom/android/server/vr/VrManagerService;->access$1300(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+
+    .line 470
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+
+    .line 463
+    :cond_1
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_0
+
+    .line 474
+    :cond_2
+    invoke-virtual {v1}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    .line 475
+    invoke-interface {p1, v3}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    .line 476
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v4, v3, v0}, Lcom/android/server/vr/VrManagerService;->access$1100(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+
+    .line 477
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v4, v3}, Lcom/android/server/vr/VrManagerService;->access$1200(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
+
+    .line 478
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v4, v3, v0}, Lcom/android/server/vr/VrManagerService;->access$1300(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+
+    .line 479
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v3}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 481
+    :cond_3
+    goto :goto_1
+
+    .line 482
+    :cond_4
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_2
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    .line 483
+    invoke-virtual {v1, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    .line 484
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v4, v3}, Lcom/android/server/vr/VrManagerService;->access$1400(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
+
+    .line 485
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v4, v3, v0}, Lcom/android/server/vr/VrManagerService;->access$1500(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+
+    .line 486
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
+
+    invoke-static {v4, v3, v0}, Lcom/android/server/vr/VrManagerService;->access$1600(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+
+    .line 487
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v3, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 489
+    :cond_5
+    goto :goto_2
+
+    .line 491
+    :cond_6
+    invoke-virtual {v1}, Landroid/util/ArraySet;->clear()V
+
+    .line 492
+    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
+
+    .line 493
+    iget-object p1, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mAllowedPackages:Landroid/util/SparseArray;
+
+    invoke-virtual {p1, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 494
+    return-void
+.end method
